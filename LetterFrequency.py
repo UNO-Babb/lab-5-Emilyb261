@@ -12,22 +12,26 @@ def countLetters(message):
     alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     message = message.upper()
 
-    freq = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    freq = [0]*26
 
     #loop through each letter
+    for letter in message:
+        if letter in alpha:
+         position = alpha
+         position = alpha.find(letter)
+         freq[position] += 1
+
     #Find the position in the alphabet
     #Increase the frequency at that position. If position was 5, then frequencies[5] = frequencies[5] + 1
-
-
+    
 
     #Create the output text in the format A,5\n if there were 5 letter A in the message.
     #Remember that the \n is the symbol for a new line.
-
     output = ""
     for i in range(26):
         print (alpha[i], ":", freq[i])
         line = alpha[i] + "," + str(freq[i]) + "\n"
-        output = output + line
+        output += line
 
     writeToFile(output)
 
@@ -49,4 +53,4 @@ def main():
 
 
 if __name__ == '__main__':
-  main()
+    main()
