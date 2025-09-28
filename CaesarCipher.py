@@ -18,8 +18,9 @@ def encode(message, key):
 
     return secret
 
-#def decode(message, key):
+def decode(message, key):
     #We will want to decode the message here.
+    return encode(message, -key)
 
 def main():
     message = input("Enter a message: ")
@@ -27,9 +28,9 @@ def main():
 
     secret = encode(message, key)
     print ("Encrypted:", secret)
-    #plaintext = decode(secret, key)
-    #print ("Decrypted:", plaintext)
+    plaintext = decode(secret, key)
+    print ("Decrypted:", plaintext)
 
 
 if __name__ == '__main__':
-  main()
+    main()
